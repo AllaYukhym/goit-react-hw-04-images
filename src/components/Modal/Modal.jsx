@@ -11,14 +11,15 @@ export const Modal = ({ src, onClose }) => {
         onClose();
       }
     };
+
     document.addEventListener('keydown', handleKeyDown);
+
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [onClose]);
 
   const handleBackdropClick = e => {
-    console.log(e.target);
     if (e.currentTarget === e.target) {
       onClose();
     }
